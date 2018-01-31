@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class SHA512 {
 
-	public String hash(String data, String salt) {
+	public static String hash(String data, String salt) {
 
 		String ret = null;
 
@@ -28,8 +28,7 @@ public class SHA512 {
 	}
 
 	public static void main(String[] args) {
-		SHA512 sha512 = new SHA512();
-		String result = sha512.hash("523456", "754");
+		String result = hash("523456", "1556382128000");
 		System.out.println(result);
 	}
 }

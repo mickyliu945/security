@@ -65,12 +65,11 @@ public class RSAUtils {
 	/**
 	 *  私钥解密
 	 * @param data 待解密数据
-	 * @param key 私钥
 	 * @return
 	 * @throws Exception
 	 */
-	public String decryptByPrivateKey(String data, String key) throws Exception {
-		byte[] bytes = decryptByPrivateKey(Base64.decodeBase64(data), Base64.decodeBase64(key));
+	public String decryptByPrivateKey(String data) throws Exception {
+		byte[] bytes = decryptByPrivateKey(Base64.decodeBase64(data), Base64.decodeBase64(privateKey));
 		return new String(bytes);
 	}
 
@@ -105,12 +104,11 @@ public class RSAUtils {
 	/**
 	 *  公钥解密
 	 * @param data 待解密数据
-	 * @param key 公钥
 	 * @return
 	 * @throws Exception
 	 */
-	public String decryptByPublicKey(String data, String key) throws Exception {
-		byte[] bytes = decryptByPrivateKey(Base64.decodeBase64(data), Base64.decodeBase64(key));
+	public String decryptByPublicKey(String data) throws Exception {
+		byte[] bytes = decryptByPrivateKey(Base64.decodeBase64(data), Base64.decodeBase64(publicKey));
 		return new String(bytes);
 	}
 
@@ -143,12 +141,11 @@ public class RSAUtils {
 	/**
 	 * 公钥加密
 	 * @param data 待加密数据
-	 * @param key 公钥
 	 * @return
 	 * @throws Exception
 	 */
-	public String encryptByPublicKey(String data, String key) throws Exception {
-		byte[] bytes = encryptByPublicKey(data.getBytes(), Base64.decodeBase64(key));
+	public String encryptByPublicKey(String data) throws Exception {
+		byte[] bytes = encryptByPublicKey(data.getBytes(), Base64.decodeBase64(publicKey));
 		return Base64.encodeBase64String(bytes);
 	}
 
@@ -183,12 +180,11 @@ public class RSAUtils {
 	/**
 	 * 公钥加密
 	 * @param data 待加密数据
-	 * @param key 私钥
 	 * @return
 	 * @throws Exception
 	 */
-	public String encryptByPrivateKey(String data, String key) throws Exception {
-		byte[] bytes = encryptByPrivateKey(data.getBytes(), Base64.decodeBase64(key));
+	public String encryptByPrivateKey(String data) throws Exception {
+		byte[] bytes = encryptByPrivateKey(data.getBytes(), Base64.decodeBase64(privateKey));
 		return Base64.encodeBase64String(bytes);
 	}
 
